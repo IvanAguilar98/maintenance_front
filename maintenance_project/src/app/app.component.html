@@ -1,0 +1,50 @@
+<div  class="grid " id="body">
+  <div class="col-2 p-2">
+    <div class="col-12 p-4 card border-round-x1 shadow-4"style="background-color: #ffffffae;">
+      <div class="grid col-12">
+        <div class="col-12 flex border-circle justify-content-center" >
+          <p-button type="button" styleClass="p-button-success p-button-rounded mr-2 p-button-lg" icon="pi pi-home"></p-button>
+        </div>
+        <div class="col-12 flex justify-content-center">
+          <h1 style="color:#450707">Healthy Friends</h1>
+        </div>
+      </div>
+      <div  class="col-12 p-4 card p-2 border-round-x1 shadow-1 flex justify-content-center">
+        <h2 style="color:#450707">Servicio de veterinaria, especialista en tratamientos, contamos con servicio a domicilio</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-10 p-4 pt-4">
+
+    <div class="col-12 p-1 shadow-4 border-round hover:shadow-6" style="display: flex;justify-content: center;background-color:#ffffff99;">
+      <h2 style="color:#450707">Servicios Disponibles</h2>
+      <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" (click)="connectedBack()" icon="pi pi-truck"></p-button>
+    </div>
+    <div class="col-12 p-1 pt-7 flex justify-content-center">
+      <div class="col-12 p-1" style="display: flex;justify-content: center;">
+        <p-carousel [value]="products" [numVisible]="2" [numScroll]="2" [circular]="false" [responsiveOptions]="OptionsCarrousel">
+          <ng-template let-product pTemplate="item">
+              <div class="border-3 surface-border border-round m-2 text-center py-5 px-3" style="background-color:#ffffff99;">
+                  <div class="mb-3">
+                      <img src="../assets/{{product.image }}" [alt]="product.name" class="w-5 shadow-5" />
+                  </div>
+                  <div>
+                      <h4 class="mb-1">{{ product.name }}</h4>
+                      <div class="car-buttons mt-5">
+                          <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" (click)="actionMethod(product.type)" icon="pi {{product.icon}}"></p-button>
+                      </div>
+                  </div>
+              </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="col-12 card p-0 border-round-x1 shadow-8" style="background: #ffffffaf;">
+  <div class="col-12 p-0 flex justify-content-center align-item-center">
+    <h3>Healthy Friends - Marca Registrada - 2023</h3>
+  </div>
+</div>

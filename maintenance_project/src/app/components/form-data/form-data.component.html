@@ -1,0 +1,91 @@
+<div class="col-12 p-2">
+  <p-tabView>
+    <p-tabPanel header="Catalogo de Miembros" *ngIf="type == 1">
+      <div  class="col-12 p-4 shadow-4 border-round hover:border-orange-700 justify-content-center" style="padding:10px;margin:0px;">
+        <div class="card shadow-4 hover:shadow-6 align-text-center justify-content-center p-2 bg-blue-900 font-bold" style="display: flex;">
+            <h5 style="color: white;">Miembros Actuales</h5>
+        </div>
+        <p-table  [columns]="headers" [scrollable]="true" #dt3
+            scrollHeight="500px" [value]="dataCatalog" [rows]="20" [paginator]="true"
+            [rowsPerPageOptions]="[20,50,100,200]"
+            styleClass="p-datatable-sm p-datatable-gridlines  p-datatable-striped"
+            [tableStyle]="{'min-width': '5rem'}" [globalFilterFields]="getColumns(headers)">
+            <ng-template pTemplate="header">
+                <tr>
+                    <ng-container *ngFor="let h of headers">
+                        <ng-container [ngSwitch]="h.field">
+                            <th *ngSwitchDefault style="white-space: nowrap;" [pSortableColumn]="h.field">
+                                {{h.header}} <p-sortIcon [field]="h.field"></p-sortIcon>
+
+                                <p-columnFilter type="text" [field]="h.field" display="menu"></p-columnFilter>
+                            </th>
+
+                        </ng-container>
+
+                    </ng-container>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+
+            <tr>
+                <ng-container *ngFor="let h of headers">
+                    <ng-container [ngSwitch]="h.field">
+                        <td [ngClass]="{'text-center': h.type === 'number' }" *ngSwitchDefault>
+                            <ng-container [ngSwitch]="h.type">
+                            <ng-container *ngSwitchDefault >
+                                {{product[h.field]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'datetime'">
+                                {{product[h.field] | date: 'yyyy-MM-dd HH:mm:ss'}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'date'">
+                                {{product[h.field] | date: 'yyyy-MM-dd'}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'bool'">
+                                {{product[h.field]?'Si':'No'}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'number'">
+                                    {{product[h.field]| number: '1.0-2'}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'%'">
+                                    {{product[h.field]| number: '1.0-2'}} %
+                            </ng-container>
+                            <!-- <ng-container *ngSwitchCase="'buttonAction'" style="background: white;">
+                                <div class="grid" style="width: max-content;">
+                                    <div class="p-4">
+                                        <span class="p-buttonset" style="display:contents;">
+                                            <p-button label="Aprobar" icon="pi pi-check-circle" (click)="updateCatalogReasign(product,1,true)" styleClass="p-button-raised p-button-success"></p-button>
+                                        </span>
+                                    </div>
+                                    <div class="p-4">
+                                        <span class="p-buttonset" style="display:contents;">
+                                            <p-button label="Rechazar" icon="pi pi-times-circle" (click)="updateCatalogReasign(product,0,false)" styleClass="p-button-raised p-button-danger"></p-button>
+                                        </span>
+                                    </div>
+                                </div>
+                                </ng-container> -->
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                </ng-container>
+
+            </tr>
+            </ng-template>
+
+        </p-table>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Datos por miembro" *ngIf="type == 2">
+      <div  class="col-12 p-4 shadow-4 border-round hover:border-orange-700 justify-content-center" style="padding:10px;margin:0px;">
+        <div class="col-12 p-2 pt-4">
+          <span class="p-float-label">
+            <input pInputText id="name" [(ngModel)]="codeCustomer" (keydown.enter)="searchInfoCustomer()" style="text-align: center;"/>
+            <label htmlFor="name">Busca el codigo de cliente </label>
+          </span>
+        </div>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</div>
+
+

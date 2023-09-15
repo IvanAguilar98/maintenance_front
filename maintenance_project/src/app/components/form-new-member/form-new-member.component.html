@@ -1,0 +1,78 @@
+<div class="formd grid p-2 m-2">
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+    <span class="p-float-label">
+      <input pInputText id="name" formControlName="nameMember" style="text-align: center;"/>
+      <label htmlFor="name">Nombre </label>
+    </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="lastname" formControlName="lastName" style="text-align: center;"/>
+        <label htmlFor="lastname">Apellidos</label>
+      </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="age" formControlName="age" style="text-align: center;"/>
+        <label htmlFor="age">Edad</label>
+      </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="direction" formControlName="direction" style="text-align: center;"/>
+        <label htmlFor="direction">Direccion</label>
+      </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+    <span class="p-float-label">
+      <input pInputText id="cell" formControlName="cellphone" style="text-align: center;"/>
+      <label htmlFor="cell">Celular</label>
+    </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="mascotname" formControlName="mascotName" style="text-align: center;"/>
+        <label htmlFor="mascotname">Nombre Mascota</label>
+      </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="typeMascot" formControlName="type" style="text-align: center;"/>
+        <label htmlFor="typeMascot">Tipo de Mascota</label>
+      </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="race" formControlName="race" style="text-align: center;"/>
+        <label htmlFor="race">Raza de Mascota (si aplica)</label>
+      </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="dateReg" formControlName="dateRegister" style="text-align: center;"/>
+        <label htmlFor="dateReg">Fecha de Registro</label>
+      </span>
+  </div>
+
+  <div class="field col-4 p-3" [formGroup]="reasignedForm">
+      <span class="p-float-label">
+        <input pInputText id="typeMember" formControlName="typeMember" style="text-align: center;"/>
+        <label htmlFor="typeMember">Tipo de Membresia</label>
+      </span>
+  </div>
+
+  <div class="field col-8 p-1" [formGroup]="reasignedForm">
+      <textarea rows="2" cols="60" placeholder="Comentarios adicionales del cliente, preferencias entre otros temas de interes"  formControlName="Comments" maxlength="249" pInputTextarea [autoResize]="true"></textarea>
+  </div>
+</div>
+<div class="flex p-1 justify-content-center" style="padding-top: 25px;">
+  <p-button label="Registrar Solicitud" (click)="saveReasignation()"  icon="pi pi-envelope" styleClass="p-button-raised p-button-text p-button-success"></p-button>
+</div>
